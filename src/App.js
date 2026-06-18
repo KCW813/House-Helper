@@ -92,13 +92,6 @@ function save(key, val) {
 
 // ─── Styles ───────────────────────────────────────────────────────────────────
 
-// ─── Tag helper ───────────────────────────────────────────────────────────────
-function tagClass(tag) {
-  if (tag === "priority") return "tag-priority";
-  if (tag === "seasonal") return "tag-seasonal";
-  return "tag-routine";
-}
-
 // ═══════════════════════════════════════════════════════════════════════════════
 export default function HousekeeperAgent() {
   const today = new Date();
