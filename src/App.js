@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import "./styles.css";
 
@@ -562,7 +561,7 @@ Return up to 3 recommended recipes, ranked by best savings.` }
 
   const removeSaleMatch = (idx) => setSalesMatches(m => m.filter((_,i) => i !== idx));
 
-  const useSaleRecipeInPlanner = (recipeName) => {
+  const applySaleRecipeToPlanner = (recipeName) => {
     setActiveTab("planner");
     showToast(`Switched to planner — add "${recipeName}" to your meal plan`);
   };
@@ -967,7 +966,7 @@ Recipe names: ${bulkText}`);
                     <div className="sale-rec-card" key={i}>
                       <div className="sale-rec-name">{rec.recipeName}</div>
                       <div className="sale-rec-why">{rec.reason}</div>
-                      <button onClick={() => useSaleRecipeInPlanner(rec.recipeName)}
+                      <button onClick={() => applySaleRecipeToPlanner(rec.recipeName)}
                         style={{marginTop:7,fontSize:11,padding:"4px 10px",borderRadius:5,border:"1px solid rgba(201,169,110,0.4)",background:"transparent",color:"#7fcdb9",cursor:"pointer",fontFamily:"'DM Sans',sans-serif"}}>
                         Add to planner →
                       </button>
@@ -1269,7 +1268,7 @@ Recipe names: ${bulkText}`);
                       <div className="sale-recipes">
                         <div className="sale-recipes-label">Recipes that use this:</div>
                         {match.relevantRecipes.map((r,i) => (
-                          <button key={i} className="sale-recipe-chip" onClick={() => useSaleRecipeInPlanner(r)}>{r} →</button>
+                          <button key={i} className="sale-recipe-chip" onClick={() => applySaleRecipeToPlanner(r)}>{r} →</button>
                         ))}
                       </div>
                     )}
